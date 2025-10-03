@@ -10,6 +10,7 @@ import MySubmissions from "./pages/client/my-submissions";
 import FormsFill from "./pages/client/forms-fill";
 import LoginPage from "./pages/login";
 import useAuthStore from "./lib/authStore";
+import { ToastContainer } from "react-toastify";
 
 function PublicRoute({ children }: { children: React.ReactNode }) {
   const { user, isAuthenticated } = useAuthStore();
@@ -92,7 +93,10 @@ function AppRoutes() {
 }
 
 const App = () => {
-  return <AppRoutes />;
+  return (<>
+  <AppRoutes />
+  <ToastContainer autoClose={1500} />
+  </>)
 };
 
 export default App;
