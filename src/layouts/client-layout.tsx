@@ -1,6 +1,10 @@
 import { Link, Outlet } from "react-router";
+import useAuthStore from "../lib/authStore";
+import { useNavigate } from "react-router";
 
 const ClientLayout = () => {
+  const navigate = useNavigate();
+  const { user, clearUser } = useAuthStore();
 
     return (
       <div className="min-h-dvh flex flex-col">
@@ -9,9 +13,12 @@ const ClientLayout = () => {
             Onboarding
           </Link>
           <div className="flex items-center gap-3 text-sm">
-            <span>john.doe@example.com</span>
+            <span>{user?.email}</span>
             <button
-              onClick={() => {}}
+              onClick={() => {
+                clearUser();
+                navigate("/login");
+              }}
               className="bg-orange-500 text-white px-3 py-1 rounded"
             >
               Logout
