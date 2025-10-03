@@ -1,10 +1,20 @@
 import { Link, Outlet } from "react-router";
 import useAuthStore from "../lib/authStore";
 import { useNavigate } from "react-router";
+import API from "../api/api-client";
 
 const ClientLayout = () => {
   const navigate = useNavigate();
   const { user, clearUser } = useAuthStore();
+
+  const handleLogout = async () => {
+    const res = await API.post("api/auth/logout/");
+    if(res.status === 200){
+      clearUser();
+      navigate("/login");
+    }
+  };
+
 
     return (
       <div className="min-h-dvh flex flex-col">
@@ -15,10 +25,7 @@ const ClientLayout = () => {
           <div className="flex items-center gap-3 text-sm">
             <span>{user?.email}</span>
             <button
-              onClick={() => {
-                clearUser();
-                navigate("/login");
-              }}
+              onClick={handleLogout}
               className="bg-orange-500 text-white px-3 py-1 rounded"
             >
               Logout

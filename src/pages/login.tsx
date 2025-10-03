@@ -10,7 +10,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { setUser } = useAuthStore();
+  const { setUser} = useAuthStore();
+ 
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,7 +27,8 @@ export default function LoginPage() {
         }
     }
     catch(err){
-        setError(err.response?.data.detail || "An error occurred");
+        // @ts-expect-error - err is any
+        setError(err.response?.data.detail || "Invalid credentials");
     }
     finally{
         setLoading(false);
