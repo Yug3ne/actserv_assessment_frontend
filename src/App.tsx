@@ -17,7 +17,7 @@ function PublicRoute({ children }: { children: React.ReactNode }) {
 
   if (user && isAuthenticated) {
     return user.role === "admin" ? (
-      <Navigate to="/admin/dashboard" replace />
+      <Navigate to="/admin/forms" replace />
     ) : (
       <Navigate to="/" replace />
     );

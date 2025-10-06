@@ -24,22 +24,16 @@ const Submissions = () => {
             key={submission.id}
             className="border rounded-2xl p-5 shadow-sm hover:shadow-md transition"
           >
-            <h2 className="text-lg font-medium mb-2">
-              {submission.data.business_name}
-            </h2>
+            {/* Dynamic key-value display */}
             <div className="text-sm text-gray-700 space-y-1">
-              <p><strong>Owner:</strong> {submission.data.owner_full_name}</p>
-              <p><strong>ID Number:</strong> {submission.data.id_number}</p>
-              <p><strong>Business Type:</strong> {submission.data.business_type}</p>
-              <p><strong>Years in Operation:</strong> {submission.data.years_in_operation}</p>
-              <p><strong>Employees:</strong> {submission.data.number_of_employees}</p>
-              <p><strong>Annual Revenue:</strong> {submission.data.annual_revenue}</p>
-              <p><strong>Grant Amount:</strong> {submission.data.grant_amount_requested}</p>
-              <p><strong>Purpose:</strong> {submission.data.purpose_of_grant}</p>
-              <p><strong>Email:</strong> {submission.data.email}</p>
-              <p><strong>Phone:</strong> {submission.data.phone_number}</p>
+              {Object.entries(submission.data).map(([key, value]) => (
+                <p key={key}>
+                  <strong>{key}:</strong> {String(value)}
+                </p>
+              ))}
             </div>
 
+            {/* Files */}
             {submission.files?.length > 0 && (
               <div className="mt-3">
                 <strong>Files:</strong>
