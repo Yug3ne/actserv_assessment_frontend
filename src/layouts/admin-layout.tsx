@@ -23,10 +23,10 @@ const AdminLayout = () => {
     >
       <aside className="row-span-2 bg-gray-100 p-4">
         <div className="font-bold text-lg mb-4">
-          <Link to="/">Onboarding Admin</Link>
+          <Link to="/admin/forms">Onboarding Admin</Link>
         </div>
         <nav className="space-y-2">
-          <NavLink
+          {/* <NavLink
             to="/admin"
             end
             className={({ isActive }) =>
@@ -36,7 +36,7 @@ const AdminLayout = () => {
             }
           >
             Dashboard
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/admin/forms"
             className={({ isActive }) =>
@@ -57,16 +57,7 @@ const AdminLayout = () => {
           >
             Submissions
           </NavLink>
-          <NavLink
-            to="/admin/clients"
-            className={({ isActive }) =>
-              `block px-3 py-2 rounded ${
-                isActive ? "bg-primary-500 text-white" : "hover:bg-gray-200"
-              }`
-            }
-          >
-            Clients
-          </NavLink>
+          
         </nav>
       </aside>
       <header className="col-start-2 flex items-center justify-end gap-3 px-4 border-b bg-white">

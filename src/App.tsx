@@ -85,7 +85,7 @@ function AppRoutes() {
         }
       >
         <Route index element={<FormsList />} />
-        <Route path="my-submissions" element={<MySubmissions />} />
+        {/* <Route path="my-submissions" element={<MySubmissions />} /> */}
         <Route path="forms/:id" element={<FormsFill />} />
       </Route>
     </Routes>

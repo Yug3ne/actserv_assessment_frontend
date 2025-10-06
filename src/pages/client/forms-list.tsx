@@ -16,7 +16,7 @@ const FormsList = () => {
 
   if (isLoading) return <p>Loading forms...</p>;
   if (isError) return <p>Failed to load forms.</p>;
-  
+
   return (
     <div className="p-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {forms?.map((form) => (

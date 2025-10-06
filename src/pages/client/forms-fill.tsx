@@ -33,7 +33,7 @@ const FormsFill = () => {
     mutationFn: submitForm,
     onSuccess: () => {
       toast.success("Form submitted successfully!");
-      navigate("/my-submissions");
+      navigate("/");
     },
     onError: () => {
       toast.error("Failed to submit form.");
@@ -98,7 +98,7 @@ const FormsFill = () => {
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
 
-            {field.type === "text" || field.type === "number" || field.type === "email"  ? (
+            {field.type === "text" || field.type === "number" || field.type === "email" || field.type === "date" || field.type === "phone" ? (
               <input
                 type={field.type}
                 required={field.required}

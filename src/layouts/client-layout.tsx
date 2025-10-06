@@ -22,6 +22,7 @@ const ClientLayout = () => {
           <Link to="/" className="font-semibold">
             Onboarding
           </Link>
+          {/* <Link to="/my-submissions">My Submissions</Link> */}
           <div className="flex items-center gap-3 text-sm">
             <span>{user?.email}</span>
             <button
